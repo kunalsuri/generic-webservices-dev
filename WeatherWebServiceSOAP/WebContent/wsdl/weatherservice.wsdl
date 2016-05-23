@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="WeatherServiceService" targetNamespace="http://weatherservice.soap.webservices.eclipse.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://weatherservice.soap.webservices.eclipse.org/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="unqualified" targetNamespace="http://weatherservice.soap.webservices.eclipse.org/" version="1.0" xmlns:tns="http://weatherservice.soap.webservices.eclipse.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="getCurrentTemperature" type="tns:getCurrentTemperature"/>
+
+  <xs:element name="getCurrentTemperatureResponse" type="tns:getCurrentTemperatureResponse"/>
+
+  <xs:element name="getProbabilityOfRain" type="tns:getProbabilityOfRain"/>
+
+  <xs:element name="getProbabilityOfRainResponse" type="tns:getProbabilityOfRainResponse"/>
+
+  <xs:element name="getTimeofWeatherObservation" type="tns:getTimeofWeatherObservation"/>
+
+  <xs:element name="getTimeofWeatherObservationResponse" type="tns:getTimeofWeatherObservationResponse"/>
+
+  <xs:complexType name="getProbabilityOfRain">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getProbabilityOfRainResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ProbabilityOfRain" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTimeofWeatherObservation">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getTimeofWeatherObservationResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="TimeOfWeatherObservation" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCurrentTemperature">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CityName" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getCurrentTemperatureResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CurrentTemprature" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getProbabilityOfRainResponse">
+    <wsdl:part name="parameters" element="tns:getProbabilityOfRainResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTimeofWeatherObservation">
+    <wsdl:part name="parameters" element="tns:getTimeofWeatherObservation">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCurrentTemperature">
+    <wsdl:part name="parameters" element="tns:getCurrentTemperature">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getCurrentTemperatureResponse">
+    <wsdl:part name="parameters" element="tns:getCurrentTemperatureResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getProbabilityOfRain">
+    <wsdl:part name="parameters" element="tns:getProbabilityOfRain">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getTimeofWeatherObservationResponse">
+    <wsdl:part name="parameters" element="tns:getTimeofWeatherObservationResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="WeatherService">
+    <wsdl:operation name="getProbabilityOfRain">
+      <wsdl:input name="getProbabilityOfRain" message="tns:getProbabilityOfRain">
+    </wsdl:input>
+      <wsdl:output name="getProbabilityOfRainResponse" message="tns:getProbabilityOfRainResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTimeofWeatherObservation">
+      <wsdl:input name="getTimeofWeatherObservation" message="tns:getTimeofWeatherObservation">
+    </wsdl:input>
+      <wsdl:output name="getTimeofWeatherObservationResponse" message="tns:getTimeofWeatherObservationResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTemperature">
+      <wsdl:input name="getCurrentTemperature" message="tns:getCurrentTemperature">
+    </wsdl:input>
+      <wsdl:output name="getCurrentTemperatureResponse" message="tns:getCurrentTemperatureResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WeatherServiceServiceSoapBinding" type="tns:WeatherService">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getProbabilityOfRain">
+      <soap12:operation soapAction="urn:GetProbabilityOfRain" style="document"/>
+      <wsdl:input name="getProbabilityOfRain">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getProbabilityOfRainResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getTimeofWeatherObservation">
+      <soap12:operation soapAction="urn:GetTimeofWeatherObservation" style="document"/>
+      <wsdl:input name="getTimeofWeatherObservation">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getTimeofWeatherObservationResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getCurrentTemperature">
+      <soap12:operation soapAction="urn:GetCurrentTemperature" style="document"/>
+      <wsdl:input name="getCurrentTemperature">
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getCurrentTemperatureResponse">
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WeatherServiceService">
+    <wsdl:port name="WeatherServicePort" binding="tns:WeatherServiceServiceSoapBinding">
+      <soap12:address location="http://localhost:8080/WeatherWebServiceSOAP/services/WeatherServicePort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
